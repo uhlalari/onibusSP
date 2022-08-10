@@ -6,35 +6,36 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_tp"
         android:layout_width="253dp"
         android:layout_height="23dp"
         android:text=" TP savassi - cidade nova"
-        tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="33dp" />
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tv_ts"
         android:layout_width="253dp"
         android:layout_height="23dp"
         android:text=" TS Cidade nova - savassi"
-        tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="56dp" />
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tv_cl"
         android:layout_width="63dp"
         android:layout_height="21dp"
         android:text="cl - 34041"
-        tools:layout_editor_absoluteX="59dp"
-        tools:layout_editor_absoluteY="79dp" />
+        app:layout_constraintEnd_toStartOf="@+id/tv_ts"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="71dp"
         android:layout_height="54dp"
-        app:srcCompat="@drawable/bus"
-        tools:layout_editor_absoluteX="51dp"
-        tools:layout_editor_absoluteY="25dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bus" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

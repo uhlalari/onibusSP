@@ -16,7 +16,8 @@ interface Endpoint {
     suspend fun getAuthentication() : Boolean
 
     @GET("/Linha/Buscar")
-    suspend fun getLines(@Query("termosBusca") linha: String = "8000",@Query("token") token: String = TOKEN) : JsonArray
+    suspend fun getLines(@Query("termosBusca") linha: String) : JsonArray
+    abstract fun getLines(): JsonArray
 
     companion object {
         val endpoint: Endpoint by lazy {

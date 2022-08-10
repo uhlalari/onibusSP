@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.main.MainActivity">
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="430dp"
-        android:layout_height="392dp"
+        android:layout_width="423dp"
+        android:layout_height="247dp"
         android:layout_marginBottom="472dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,24 +18,32 @@
         app:srcCompat="@drawable/bg" />
 
     <SearchView
-        android:id="@+id/searchView2"
+        android:id="@+id/searchMain"
         android:layout_width="0dp"
-        android:layout_height="46dp"
+        android:layout_height="0dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="126dp"
+        android:layout_marginTop="111dp"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="118dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        android:layout_marginBottom="78dp"
         android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/rv_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="372dp"
-        android:layout_height="450dp"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="235dp"
-        tools:listitem="@layout/linhas_item"
-        tools:itemCount="30"/>
+        android:id="@+id/rv_main"
+        android:layout_width="369dp"
+        android:layout_height="407dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="46dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView2"
+        tools:itemCount="30"
+        tools:listitem="@layout/linhas_item"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,11 +8,12 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="0dp"
-        android:layout_height="464dp"
-        android:layout_marginBottom="441dp"
+        android:layout_width="430dp"
+        android:layout_height="392dp"
+        android:layout_marginBottom="472dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/bg" />
 
@@ -34,5 +35,7 @@
         android:layout_width="372dp"
         android:layout_height="450dp"
         tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="235dp" />
+        tools:layout_editor_absoluteY="235dp"
+        tools:listitem="@layout/linhas_item"
+        tools:itemCount="30"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

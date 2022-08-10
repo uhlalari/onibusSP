@@ -3,38 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="253dp"
         android:layout_height="23dp"
-        android:text="TP"
+        android:text=" TP savassi - cidade nova"
         tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="64dp" />
+        tools:layout_editor_absoluteY="33dp" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="253dp"
         android:layout_height="23dp"
-        android:text="TS"
+        android:text=" TS Cidade nova - savassi"
         tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="100dp" />
+        tools:layout_editor_absoluteY="56dp" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="73dp"
-        android:layout_height="23dp"
+        android:layout_width="63dp"
+        android:layout_height="21dp"
         android:text="cl - 34041"
-        tools:layout_editor_absoluteX="52dp"
-        tools:layout_editor_absoluteY="110dp" />
+        tools:layout_editor_absoluteX="59dp"
+        tools:layout_editor_absoluteY="79dp" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="71dp"
         android:layout_height="54dp"
-        app:srcCompat="@android:drawable/btn_dialog"
-        tools:layout_editor_absoluteX="52dp"
-        tools:layout_editor_absoluteY="56dp" />
+        app:srcCompat="@drawable/bus"
+        tools:layout_editor_absoluteX="51dp"
+        tools:layout_editor_absoluteY="25dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

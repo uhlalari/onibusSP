@@ -18,6 +18,12 @@ interface Endpoint {
     @GET("/Linha/Buscar")
     suspend fun getLines(@Query("termosBusca") linha: String) : JsonArray
 
+    @GET("/Previsao/Parada")
+    suspend fun getPrevisao(@Query("codigoParada") cdParada: String)
+
+    @GET("/Parada/BuscarParadasPorLinha")
+    suspend fun getParadasPorLinhas(@Query("codigoLinha") linha : String) : JsonArray
+
     companion object {
         val endpoint: Endpoint by lazy {
             val endpoint = Retrofit.Builder()

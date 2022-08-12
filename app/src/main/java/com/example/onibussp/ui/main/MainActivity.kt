@@ -1,5 +1,6 @@
 package com.example.onibussp.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.onibussp.databinding.ActivityMainBinding
+import com.example.onibussp.ui.maps.MapsActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,6 +41,12 @@ class MainActivity : AppCompatActivity() {
             mainAdapter = MainAdapter(it)
             binding.rvMain.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL,false)
             binding.rvMain.adapter = mainAdapter
+
+            mainAdapter.openLinhasDetails {
+                val intent = Intent(this, MapsActivity::class.java)
+                    .putExtra("cdLinha", it.cl.toString())
+                startActivity(intent)
+            }
 
             binding.rvMain.visibility = View.VISIBLE
             binding.tvMain.visibility = View.INVISIBLE

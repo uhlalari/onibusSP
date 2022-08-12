@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.onibussp" >
+    package="com.example.onibussp">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,8 +14,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OnibusSP"
-        tools:targetApi="31" >
-
+        tools:targetApi="31">
+        <activity
+            android:name=".ui.maps.MapsActivity"
+            android:exported="true" >
+            </activity>
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -36,16 +39,20 @@
             android:exported="true"
             android:label="@string/title_activity_maps" >
 
-        </activity>-->
+        </activity>
+        -->
         <activity
             android:name=".ui.main.MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${GOOGLE_MAPS_API_KEY}" />
     </application>
 
 </manifest>

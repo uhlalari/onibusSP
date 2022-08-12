@@ -3,6 +3,7 @@ package com.example.onibussp.repository
 import android.util.Log
 import com.example.onibussp.api.Endpoint.Companion.endpoint
 import com.example.onibussp.model.Linhas
+import com.example.onibussp.model.Paradas
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonArray
@@ -41,18 +42,54 @@ class RepositoryImpl : Repository {
                 //Mock temporário enquanto existe problemas na API que retorna o erro timeout
                 if (t.message == "timeout") {
                     val listaMok = listOf(
+                        Linhas(1273, false, "8000", 1, 10, "Erro na API", "TERMINAL LAPA"),
+                        Linhas(34041,
+                            false,
+                            "8000",
+                            2,
+                            10,
+                            "PCA.RAMOS DE AZEVEDO",
+                            "TERMINAL LAPA"),
                         Linhas(1273, false, "8000", 1, 10, "PCA.RAMOS DE AZEVEDO", "TERMINAL LAPA"),
-                        Linhas(34041, false, "8000", 2, 10, "PCA.RAMOS DE AZEVEDO", "TERMINAL LAPA"),
+                        Linhas(34041,
+                            false,
+                            "8000",
+                            2,
+                            10,
+                            "PCA.RAMOS DE AZEVEDO",
+                            "TERMINAL LAPA"),
                         Linhas(1273, false, "8000", 1, 10, "PCA.RAMOS DE AZEVEDO", "TERMINAL LAPA"),
-                        Linhas(34041, false, "8000", 2, 10, "PCA.RAMOS DE AZEVEDO", "TERMINAL LAPA"),
+                        Linhas(34041,
+                            false,
+                            "8000",
+                            2,
+                            10,
+                            "PCA.RAMOS DE AZEVEDO",
+                            "TERMINAL LAPA"),
                         Linhas(1273, false, "8000", 1, 10, "PCA.RAMOS DE AZEVEDO", "TERMINAL LAPA"),
-                        Linhas(34041, false, "8000", 2, 10, "PCA.RAMOS DE AZEVEDO", "TERMINAL LAPA"),
+                        Linhas(34041,
+                            false,
+                            "8000",
+                            2,
+                            10,
+                            "PCA.RAMOS DE AZEVEDO",
+                            "TERMINAL LAPA"),
                         Linhas(1273, false, "8000", 1, 10, "PCA.RAMOS DE AZEVEDO", "TERMINAL LAPA"),
-                        Linhas(34041, false, "8000", 2, 10, "PCA.RAMOS DE AZEVEDO", "TERMINAL LAPA"),
+                        Linhas(34041,
+                            false,
+                            "8000",
+                            2,
+                            10,
+                            "PCA.RAMOS DE AZEVEDO",
+                            "TERMINAL LAPA"),
                         Linhas(1273, false, "8000", 1, 10, "PCA.RAMOS DE AZEVEDO", "TERMINAL LAPA"),
-                        Linhas(34041, false, "8000", 2, 10, "PCA.RAMOS DE AZEVEDO", "TERMINAL LAPA"),
-                        Linhas(1273, false, "8000", 1, 10, "PCA.RAMOS DE AZEVEDO", "TERMINAL LAPA"),
-                        Linhas(34041, false, "8000", 2, 10, "PCA.RAMOS DE AZEVEDO", "TERMINAL LAPA"),
+                        Linhas(34041,
+                            false,
+                            "8000",
+                            2,
+                            10,
+                            "PCA.RAMOS DE AZEVEDO",
+                            "TERMINAL LAPA"),
                         Linhas(1273, false, "8000", 1, 10, "PCA.RAMOS DE AZEVEDO", "TERMINAL LAPA"),
                         Linhas(34041, false, "8000", 2, 10, "PCA.RAMOS DE AZEVEDO", "TERMINAL LAPA")
                     )
@@ -60,6 +97,18 @@ class RepositoryImpl : Repository {
                 } else {
                     RepositoryStatus.Erro(t)
                 }
+            }
+        }
+    }
+
+    override suspend fun getParadasPorLinhas(cdLinha: String): RepositoryStatus {
+        return withContext(Dispatchers.IO) {
+            try {
+                var response = endpoint.getParadasPorLinhas(cdLinha)
+                val lista = gson.fromJson(response, Array<Paradas>::class.java).toList()
+                RepositoryStatus.SucessoParadas(lista)
+            } catch (t: Throwable) {
+                RepositoryStatus.Erro(t)
             }
         }
     }

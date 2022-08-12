@@ -3,39 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginBottom="16dp">
 
     <TextView
         android:id="@+id/tv_tp"
-        android:layout_width="253dp"
-        android:layout_height="23dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text=" TP savassi - cidade nova"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_ts"
-        android:layout_width="253dp"
-        android:layout_height="23dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:text=" TS Cidade nova - savassi"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/tv_tp" />
 
     <TextView
         android:id="@+id/tv_cl"
-        android:layout_width="63dp"
-        android:layout_height="21dp"
-        android:text="cl - 34041"
-        app:layout_constraintEnd_toStartOf="@+id/tv_ts"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:text="34041"
+        android:gravity="center"
+        android:layout_marginTop="18dp"
+        android:maxLines="1"
+        app:layout_constraintEnd_toStartOf="@+id/tv_tp"
         app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="71dp"
-        android:layout_height="54dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bus" />
+        android:src="@drawable/ic_bus_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,7 +17,6 @@ interface Endpoint {
 
     @GET("/Linha/Buscar")
     suspend fun getLines(@Query("termosBusca") linha: String) : JsonArray
-    abstract fun getLines(): JsonArray
 
     companion object {
         val endpoint: Endpoint by lazy {

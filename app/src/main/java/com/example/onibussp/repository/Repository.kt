@@ -12,5 +12,5 @@ sealed class RepositoryStatus{
 
 interface Repository {
     suspend fun getAuthentication() : RepositoryStatus
-    suspend fun getLines() : RepositoryStatus
+    suspend fun getLines(linha : String) : RepositoryStatus
 }

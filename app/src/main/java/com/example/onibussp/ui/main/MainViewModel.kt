@@ -1,4 +1,4 @@
-package com.example.onibussp.ui
+package com.example.onibussp.ui.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -34,9 +34,9 @@ class MainViewModel (private val repository: Repository = RepositoryImpl()): Vie
         }
     }
 
-    fun getLines() = viewModelScope.launch{
+    fun getLines(linha : String) = viewModelScope.launch{
 
-        repository.getLines().apply {
+        repository.getLines(linha).apply {
             when(this){
                 is RepositoryStatus.SucessoLinhas-> _lines.value = response
                 is RepositoryStatus.Erro -> _error.value = error

@@ -7,43 +7,54 @@
     tools:context=".ui.main.MainActivity">
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="423dp"
-        android:layout_height="247dp"
-        android:layout_marginBottom="472dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/bg" />
-
-    <SearchView
-        android:id="@+id/searchMain"
+        android:id="@+id/imageView2"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="111dp"
-        android:imeOptions="actionSearch"
-        android:inputType="text"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="78dp"
-        android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/rv_main"
+        android:layout_height="210dp"
+        android:src="@drawable/bg_half_circle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/searchMain"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="100dp"
+        android:layout_marginBottom="80dp"
+        android:hint="Busque aqui"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/imageView2" />
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_main"
-        android:layout_width="369dp"
-        android:layout_height="407dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginBottom="46dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop=""
+        android:layout_marginHorizontal="13dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
         tools:itemCount="30"
-        tools:listitem="@layout/linhas_item"/>
+        tools:listitem="@layout/linhas_item" />
+
+    <TextView
+        android:id="@+id/tv_main"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Pesquise seu ônibus acima, você pode buscar pelo número da linha, partida ou destino."
+        android:textSize="24sp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_main"
+        app:layout_constraintEnd_toEndOf="@+id/rv_main"
+        app:layout_constraintStart_toStartOf="@+id/rv_main"
+        app:layout_constraintTop_toTopOf="@+id/rv_main"
+        android:visibility="invisible"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

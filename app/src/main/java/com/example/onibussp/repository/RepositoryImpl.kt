@@ -5,9 +5,7 @@ import com.example.onibussp.api.Endpoint.Companion.endpoint
 import com.example.onibussp.model.Linhas
 import com.example.onibussp.model.Paradas
 import com.example.onibussp.model.Posicao
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.google.gson.JsonArray
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -118,7 +116,7 @@ class RepositoryImpl : Repository {
         return withContext(Dispatchers.IO) {
             try {
                 var response = endpoint.getPosicao(cdLinha)
-                Log.v("teste", ""+response)
+                Log.v("teste", "" + response)
                 var posicao = gson.fromJson(response, Posicao::class.java)
                 RepositoryStatus.SucessoPosicao(posicao)
 

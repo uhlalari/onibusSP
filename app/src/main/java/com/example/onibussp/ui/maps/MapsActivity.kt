@@ -1,7 +1,6 @@
 package com.example.onibussp.ui.maps
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.drawable.toBitmap
@@ -21,6 +20,7 @@ class MapsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_maps)
         val cdLinha = intent.extras?.get("cdLinha").toString()
         val mapFragment =

@@ -2,7 +2,6 @@ package com.example.onibussp.api
 
 import com.example.onibussp.api.Const.API_URL
 import com.example.onibussp.api.Const.TOKEN
-import com.example.onibussp.model.Linhas
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import retrofit2.Retrofit
@@ -13,19 +12,19 @@ import retrofit2.http.Query
 
 interface Endpoint {
     @POST("Login/Autenticar?token=${TOKEN}")
-    suspend fun getAuthentication() : Boolean
+    suspend fun getAuthentication(): Boolean
 
     @GET("/Linha/Buscar")
-    suspend fun getLines(@Query("termosBusca") linha: String) : JsonArray
+    suspend fun getLines(@Query("termosBusca") linha: String): JsonArray
 
     @GET("/Previsao/Parada")
     suspend fun getPrevisao(@Query("codigoParada") cdParada: String)
 
     @GET("/Posicao/Linha")
-    suspend fun getPosicao(@Query("codigoLinha") cdLinha: String) : JsonObject
+    suspend fun getPosicao(@Query("codigoLinha") cdLinha: String): JsonObject
 
     @GET("/Parada/BuscarParadasPorLinha")
-    suspend fun getParadasPorLinhas(@Query("codigoLinha") cdLinha : String) : JsonArray
+    suspend fun getParadasPorLinhas(@Query("codigoLinha") cdLinha: String): JsonArray
 
     companion object {
         val endpoint: Endpoint by lazy {

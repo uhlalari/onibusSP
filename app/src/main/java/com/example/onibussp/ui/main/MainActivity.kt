@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.lines.observe(this) {
             mainAdapter = MainAdapter(it)
-            binding.rvMain.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL,false)
+            binding.rvMain.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
             binding.rvMain.adapter = mainAdapter
 
             mainAdapter.openLinhasDetails {
@@ -54,13 +54,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewModel.authentication.observe(this) {
-            if(it){
+            if (it) {
                 viewModel.getLines(binding.searchMain.text.toString())
             }
         }
 
         viewModel.error.observe(this) {
-            Log.v("teste", ""+it)
+            Log.v("teste", "" + it)
         }
     }
 

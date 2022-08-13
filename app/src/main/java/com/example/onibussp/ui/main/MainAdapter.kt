@@ -6,9 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.onibussp.databinding.LinhasItemBinding
 import com.example.onibussp.model.Linhas
 
-class MainAdapter(private val linhas: List<Linhas>) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+class MainAdapter(private val linhas: List<Linhas>) :
+    RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
-    private var linhaDetails: ((Linhas)-> Unit)? = null
+    private var linhaDetails: ((Linhas) -> Unit)? = null
 
     class ViewHolder(val binding: LinhasItemBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -20,10 +21,10 @@ class MainAdapter(private val linhas: List<Linhas>) : RecyclerView.Adapter<MainA
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder) {
             binding.tvCl.text = linhas[position].cl.toString()
-            binding.tvTp.text = "Origem: "+linhas[position].tp
-            binding.tvTs.text = "Destino: "+linhas[position].ts
-            binding.clLinhaDetail.setOnClickListener{
-                linhaDetails?.let{
+            binding.tvTp.text = "Origem: " + linhas[position].tp
+            binding.tvTs.text = "Destino: " + linhas[position].ts
+            binding.clLinhaDetail.setOnClickListener {
+                linhaDetails?.let {
                     it(linhas[position])
                 }
             }
@@ -34,7 +35,7 @@ class MainAdapter(private val linhas: List<Linhas>) : RecyclerView.Adapter<MainA
         return linhas.size
     }
 
-    fun openLinhasDetails(listener:(Linhas)-> Unit){
+    fun openLinhasDetails(listener: (Linhas) -> Unit) {
         linhaDetails = listener
     }
 }

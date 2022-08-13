@@ -11,7 +11,7 @@ import com.example.onibussp.repository.RepositoryImpl
 import com.example.onibussp.repository.RepositoryStatus
 import kotlinx.coroutines.launch
 
-class MapsViewModel  (private val repository: Repository = RepositoryImpl()): ViewModel() {
+class MapsViewModel(private val repository: Repository = RepositoryImpl()) : ViewModel() {
     private val _error = MutableLiveData<Throwable>()
     val error: LiveData<Throwable>
         get() = _error
@@ -24,19 +24,20 @@ class MapsViewModel  (private val repository: Repository = RepositoryImpl()): Vi
     val posicao: LiveData<Posicao>
         get() = _posicao
 
-    fun getParadasPorLinhas(cdLinha : String) = viewModelScope.launch{
-        repository.getParadasPorLinhas(cdLinha) .apply {
-            when(this){
-                is RepositoryStatus.SucessoParadas-> _paradas.value = response
+    fun getParadasPorLinhas(cdLinha: String) = viewModelScope.launch {
+        repository.getParadasPorLinhas(cdLinha).apply {
+            when (this) {
+                is RepositoryStatus.SucessoParadas -> _paradas.value = response
                 is RepositoryStatus.Erro -> _error.value = error
                 else -> {}
             }
         }
     }
-    fun getPosicao(cdLinha : String) = viewModelScope.launch{
-        repository.getPosicao(cdLinha) .apply {
-            when(this){
-                is RepositoryStatus.SucessoPosicao-> _posicao.value = response
+
+    fun getPosicao(cdLinha: String) = viewModelScope.launch {
+        repository.getPosicao(cdLinha).apply {
+            when (this) {
+                is RepositoryStatus.SucessoPosicao -> _posicao.value = response
                 is RepositoryStatus.Erro -> _error.value = error
                 else -> {}
             }

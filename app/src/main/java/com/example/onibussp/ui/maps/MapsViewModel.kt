@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.onibussp.model.Paradas
+import com.example.onibussp.model.Posicao
 import com.example.onibussp.repository.Repository
 import com.example.onibussp.repository.RepositoryImpl
 import com.example.onibussp.repository.RepositoryStatus
@@ -19,6 +20,10 @@ class MapsViewModel  (private val repository: Repository = RepositoryImpl()): Vi
     val paradas: LiveData<List<Paradas>>
         get() = _paradas
 
+    private val _posicao = MutableLiveData<Posicao>()
+    val posicao: LiveData<Posicao>
+        get() = _posicao
+
     fun getParadasPorLinhas(cdLinha : String) = viewModelScope.launch{
         repository.getParadasPorLinhas(cdLinha) .apply {
             when(this){
@@ -28,4 +33,14 @@ class MapsViewModel  (private val repository: Repository = RepositoryImpl()): Vi
             }
         }
     }
+    fun getPosicao(cdLinha : String) = viewModelScope.launch{
+        repository.getPosicao(cdLinha) .apply {
+            when(this){
+                is RepositoryStatus.SucessoPosicao-> _posicao.value = response
+                is RepositoryStatus.Erro -> _error.value = error
+                else -> {}
+            }
+        }
+    }
+
 }

@@ -4,6 +4,7 @@ import android.util.Log
 import com.example.onibussp.api.Endpoint.Companion.endpoint
 import com.example.onibussp.model.Linhas
 import com.example.onibussp.model.Paradas
+import com.example.onibussp.model.Posicao
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonArray
@@ -111,5 +112,21 @@ class RepositoryImpl : Repository {
                 RepositoryStatus.Erro(t)
             }
         }
+    }
+
+    override suspend fun getPosicao(cdLinha: String): RepositoryStatus {
+        return withContext(Dispatchers.IO) {
+            try {
+                var response = endpoint.getPosicao(cdLinha)
+                Log.v("teste", ""+response)
+                var posicao = gson.fromJson(response, Posicao::class.java)
+                RepositoryStatus.SucessoPosicao(posicao)
+
+            } catch (t: Throwable) {
+                RepositoryStatus.Erro(t)
+
+            }
+        }
+
     }
 }

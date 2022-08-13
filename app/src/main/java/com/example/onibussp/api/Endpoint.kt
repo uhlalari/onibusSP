@@ -21,8 +21,11 @@ interface Endpoint {
     @GET("/Previsao/Parada")
     suspend fun getPrevisao(@Query("codigoParada") cdParada: String)
 
+    @GET("/Posicao/Linha")
+    suspend fun getPosicao(@Query("codigoLinha") cdLinha: String) : JsonObject
+
     @GET("/Parada/BuscarParadasPorLinha")
-    suspend fun getParadasPorLinhas(@Query("codigoLinha") linha : String) : JsonArray
+    suspend fun getParadasPorLinhas(@Query("codigoLinha") cdLinha : String) : JsonArray
 
     companion object {
         val endpoint: Endpoint by lazy {

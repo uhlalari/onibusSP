@@ -20,7 +20,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="100dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="60dp"
         android:hint="Busque aqui"
         android:imeOptions="actionSearch"
         android:inputType="text"
@@ -57,4 +57,16 @@
         app:layout_constraintStart_toStartOf="@+id/rv_main"
         app:layout_constraintTop_toTopOf="@+id/rv_main"
         android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="172dp"
+        android:layout_height="178dp"
+        android:layout_marginBottom="92dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="0.933"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:srcCompat="@drawable/logo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
